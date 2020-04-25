@@ -1105,17 +1105,17 @@ static int uclogic_params_init_ugee_xppen_a156p(struct hid_device *hdev,
 	p->pen.id = 0x02;
 
 	rc = uclogic_params_frame_init_with_desc(
-		&p->frame,
+		p->frame_list,
 		uclogic_rdesc_xppen_a156p_frame_arr,
 		uclogic_rdesc_xppen_a156p_frame_size,
-		UCLOGIC_RDESC_BUTTONPAD_V1_ID
+		UCLOGIC_RDESC_V1_FRAME_ID
 	);
 	if (rc < 0) {
 		hid_err(hdev, "initializing frame params failed: %d\n", rc);
 		return rc;
 	}
 
-	p->pen_frame_flag = 0x10;
+	//p->pen_frame_flag = 0x10;
 
 	return 0;
 }
